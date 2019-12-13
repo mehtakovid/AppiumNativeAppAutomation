@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="24531" started-at="2019-12-13T20:02:04 IST" finished-at="2019-12-13T20:02:28 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="24531" started-at="2019-12-13T20:02:04 IST" finished-at="2019-12-13T20:02:28 IST">
+      <class name="mmtTestCases.TestCases">
+        <test-method status="PASS" signature="setupAndroidDriver()[pri:0, instance:mmtTestCases.TestCases@6c49835d]" name="setupAndroidDriver" is-config="true" duration-ms="45649" started-at="2019-12-13T20:01:18 IST" finished-at="2019-12-13T20:02:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupAndroidDriver -->
+        <test-method status="PASS" signature="bookRails()[pri:0, instance:mmtTestCases.TestCases@6c49835d]" name="bookRails" duration-ms="24354" started-at="2019-12-13T20:02:04 IST" finished-at="2019-12-13T20:02:28 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bookRails -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:mmtTestCases.TestCases@6c49835d]" name="tearDown" is-config="true" duration-ms="2731" started-at="2019-12-13T20:02:28 IST" finished-at="2019-12-13T20:02:31 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- mmtTestCases.TestCases -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
