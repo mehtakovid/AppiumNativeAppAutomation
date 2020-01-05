@@ -5,8 +5,8 @@
     <classes>
       <class name="mmtTestCases.TestCases">
         <methods>
-          <include name="listDownNumberOfGiftCardOptions"/>
           <include name="setupAndroidDriver"/>
+          <include name="getPriciestPremiumHotelDetails"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- mmtTestCases.TestCases -->
