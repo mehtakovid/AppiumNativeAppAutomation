@@ -58,5 +58,11 @@ public class mmtObjectRepo {
 	By addChild = By.id("com.makemytrip:id/ivchildadd");
 	By DoneButton = By.id("com.makemytrip:id/btn_done");
 	By searchHotelsButton = By.id("com.makemytrip:id/BtnSearch");
-	
+	By premiumCategory = By.xpath("//android.widget.TextView[@text='PREMIUM']");
+	By sortAndFilter = By.id("com.makemytrip:id/sort_filter");
+	By sort_highToLow = By.xpath("//android.widget.TextView[@text=' High to Low']");
+	By hotelNames = By.id("com.makemytrip:id/tvHotelName");
+	By hotelPrices = By.id("com.makemytrip:id/tvHotelDiscountedPrice");
+	By mmtAssuredBanner = By.id("com.makemytrip:id/tvSkipNow");
+	By helperPopUp = By.id("com.makemytrip:id/close_helper");
 }
