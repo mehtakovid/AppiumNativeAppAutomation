@@ -134,4 +134,18 @@ public class mmtHotelBookingPageFunctions extends mmtObjectRepo {
 	public void clickOnSearchHotels() {
 		wait.until(ExpectedConditions.elementToBeClickable(searchHotelsButton)).click();
 	}
+	
+	public void closeBanner() {
+		
+		if(!wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(mmtAssuredBanner)).isEmpty()) {
+			driver.findElement(mmtAssuredBanner).click();
+		}
+	}
+
+	public void closeHelper() {
+		if(!wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(helperPopUp)).isEmpty()) {
+			driver.findElement(helperPopUp).click();
+		}
+		
+	}
 }

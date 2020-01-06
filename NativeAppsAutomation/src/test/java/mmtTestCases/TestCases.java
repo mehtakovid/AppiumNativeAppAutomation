@@ -6,6 +6,7 @@ import mmtPageLogic.mmtFlightBookingPageFunctions;
 import mmtPageLogic.mmtFlightResultPageFunctions;
 import mmtPageLogic.mmtHomePageFunctions;
 import mmtPageLogic.mmtHotelBookingPageFunctions;
+import mmtPageLogic.mmtHotelsResultPageFunctions;
 
 public class TestCases extends BaseClassMMT {
 		
@@ -56,15 +57,20 @@ public class TestCases extends BaseClassMMT {
 	public void getPriciestPremiumHotelDetails() {
 		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait);
 		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait);
+		mmtHotelsResultPageFunctions TS3 = new mmtHotelsResultPageFunctions(driver, wait);
 		TS1.checkForUnwantedPopUps();
 		TS1.clickOnHotels();
 		TS2.setHotelDestination("Bangalore");
 		TS2.setCheckInDate("May 2020", "21");
 		TS2.setCheckOutDate("May 2020", "29");
-		TS2.setNumberOfAdults(4);
-		TS2.childrenConfiguration(2);
+		TS2.setNumberOfAdults(3);
+		TS2.childrenConfiguration(1);
 		TS2.clickOnSearchHotels();
-		
+		TS2.closeBanner();
+		TS2.closeHelper();
+		TS3.selectPremiumCategory();
+		TS3.sortByHighPriceToLowPrice();
+		System.out.println("The two Priciest hotels for this search are : " +TS3.fetchHighestPriceHotel());
 	}
 	
 	/***
