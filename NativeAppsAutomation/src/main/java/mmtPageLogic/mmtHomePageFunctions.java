@@ -59,7 +59,8 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 		
 		TouchAction t = new TouchAction(driver);
 		while(driver.findElements(Rails).isEmpty()){
-			t.press(PointOption.point(1200,200)).waitAction().moveTo(PointOption.point(300,200)).release().perform();
+			System.out.println("Scrolling for Rails");
+			t.press(PointOption.point(1200,450)).waitAction().moveTo(PointOption.point(600,450)).release().perform();
 		}		
 		Assert.assertEquals(wait.until(ExpectedConditions.visibilityOfElementLocated(RailsAssertion)).isDisplayed(),true);
 		
@@ -73,10 +74,14 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(driver.findElements(travelBlogHeading).isEmpty()) {
+			System.out.println("Travel Blog Section does not exist. Execution will be aborted");
+			System.exit(1);
+		}
 		
 		TouchAction t = new TouchAction(driver);
 		while(driver.findElements(By.xpath("//android.widget.TextView[@text='"+Name+"']")).isEmpty()) {
-			t.press(PointOption.point(1200,1900)).waitAction().moveTo(PointOption.point(800, 1900)).release().perform();
+			t.press(PointOption.point(1200,1900)).waitAction().moveTo(PointOption.point(300, 1900)).release().perform();
 		}
 		driver.findElement(By.xpath("//android.widget.TextView[@text='"+Name+"']")).click();	
 		String BlogTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text='"+Name+"']"))).getText();

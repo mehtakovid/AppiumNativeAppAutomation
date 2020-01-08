@@ -91,7 +91,15 @@ public class mmtHotelBookingPageFunctions extends mmtObjectRepo {
 				+ "/parent::android.widget.LinearLayout"
 				+ "/parent::android.widget.LinearLayout"
 				+ "/descendant::android.widget.CheckedTextView[@text='"+Date+"']")).click();
-		
+		if(!driver.findElements(By.xpath("//android.widget.Toast")).isEmpty()) {
+			driver.findElement(By.xpath("//android.widget.TextView[@text='"+MonYear+"']"
+					+ "/parent::android.widget.LinearLayout"
+					+ "/parent::android.widget.LinearLayout"
+					+ "/parent::android.widget.LinearLayout"
+					+ "/descendant::android.widget.CheckedTextView[@text='"+Date+"']")).click();
+			String errorMessage = driver.findElement(By.xpath("//android.widget.Toast")).getAttribute("name");
+			System.out.println("Cannot select this date. Error Message : "+errorMessage);
+		}
 		driver.findElement(okButton).click();
 		
 	}
@@ -102,6 +110,10 @@ public class mmtHotelBookingPageFunctions extends mmtObjectRepo {
 			int i=2;
 			while(i<numberofAdults) {
 				wait.until(ExpectedConditions.elementToBeClickable(addAdults)).click();
+				if(!driver.findElements(By.xpath("//android.widget.Toast")).isEmpty()) {
+					System.out.println("Can't add more guests. Error Message : "+driver.findElement(By.xpath("//android.widget.Toast")).getAttribute("name"));
+					break;
+				}
 				i++;
 			}
 		}
@@ -147,5 +159,10 @@ public class mmtHotelBookingPageFunctions extends mmtObjectRepo {
 			driver.findElement(helperPopUp).click();
 		}
 		
+	}
+	
+	public void getToastMessage() {
+		String errorMessage = driver.findElement(By.xpath("//android.widget.Toast")).getAttribute("name");
+		System.out.println("Toast Message is : "+errorMessage);
 	}
 }

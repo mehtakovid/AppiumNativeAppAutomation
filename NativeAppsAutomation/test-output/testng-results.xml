@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="123495" started-at="2020-01-06T21:37:49 IST" finished-at="2020-01-06T21:39:52 IST">
+  <suite name="Default suite" duration-ms="72646" started-at="2020-01-08T20:17:55 IST" finished-at="2020-01-08T20:19:08 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="123495" started-at="2020-01-06T21:37:49 IST" finished-at="2020-01-06T21:39:52 IST">
+    <test name="Default test" duration-ms="72646" started-at="2020-01-08T20:17:55 IST" finished-at="2020-01-08T20:19:08 IST">
       <class name="mmtTestCases.TestCases">
-        <test-method status="PASS" signature="setupAndroidDriver()[pri:0, instance:mmtTestCases.TestCases@2d6eabae]" name="setupAndroidDriver" is-config="true" duration-ms="47053" started-at="2020-01-06T21:37:02 IST" finished-at="2020-01-06T21:37:49 IST">
+        <test-method status="PASS" signature="setupAndroidDriver()[pri:0, instance:mmtTestCases.TestCases@64729b1e]" name="setupAndroidDriver" is-config="true" duration-ms="52815" started-at="2020-01-08T20:17:55 IST" finished-at="2020-01-08T20:18:48 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupAndroidDriver -->
-        <test-method status="PASS" signature="getPriciestPremiumHotelDetails()[pri:0, instance:mmtTestCases.TestCases@2d6eabae]" name="getPriciestPremiumHotelDetails" duration-ms="123326" started-at="2020-01-06T21:37:49 IST" finished-at="2020-01-06T21:39:52 IST">
+        <test-method status="PASS" signature="scrollToRails()[pri:2, instance:mmtTestCases.TestCases@64729b1e]" name="scrollToRails" duration-ms="17340" started-at="2020-01-08T20:18:48 IST" finished-at="2020-01-08T20:19:05 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getPriciestPremiumHotelDetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:mmtTestCases.TestCases@2d6eabae]" name="tearDown" is-config="true" duration-ms="3611" started-at="2020-01-06T21:39:52 IST" finished-at="2020-01-06T21:39:56 IST">
+        </test-method> <!-- scrollToRails -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:mmtTestCases.TestCases@64729b1e]" name="tearDown" is-config="true" duration-ms="2392" started-at="2020-01-08T20:19:05 IST" finished-at="2020-01-08T20:19:08 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -36,7 +36,7 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 		wait.until(ExpectedConditions.elementToBeClickable(CityTextBox)).click();
 		driver.findElement(CityTextBox).sendKeys(departureCity);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		}
 		catch(Exception e) {
 			
@@ -50,7 +50,7 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 		wait.until(ExpectedConditions.elementToBeClickable(CityTextBox)).click();
 		driver.findElement(CityTextBox).sendKeys(arrivalCity);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		}
 		catch(Exception e) {
 			

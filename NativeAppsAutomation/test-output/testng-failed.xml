@@ -5,9 +5,14 @@
     <classes>
       <class name="mmtTestCases.TestCases">
         <methods>
+          <include name="flightBooking" invocation-numbers="0"/>
           <include name="setupAndroidDriver"/>
-          <include name="getPriciestPremiumHotelDetails"/>
+          <include name="getPriciestPremiumHotelDetails" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="bookingDateToastMessage" invocation-numbers="0"/>
+          <include name="BookingAdultLimitToastMessage" invocation-numbers="0"/>
+          <include name="scrollToRails"/>
+          <include name="getNumberOfTravelBlogsAndClickOnSpecificOne" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- mmtTestCases.TestCases -->
     </classes>
