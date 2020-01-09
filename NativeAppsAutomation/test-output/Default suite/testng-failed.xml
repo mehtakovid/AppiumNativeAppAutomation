@@ -3,18 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="mmtTestCases.TestCases">
+      <class name="mmtTestCases.FlightBookingTests">
         <methods>
-          <include name="flightBooking" invocation-numbers="0"/>
           <include name="setupAndroidDriver"/>
-          <include name="getPriciestPremiumHotelDetails" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="bookingDateToastMessage" invocation-numbers="0"/>
-          <include name="BookingAdultLimitToastMessage" invocation-numbers="0"/>
-          <include name="scrollToRails"/>
-          <include name="getNumberOfTravelBlogsAndClickOnSpecificOne" invocation-numbers="0 1"/>
+          <include name="flightBooking" invocation-numbers="1"/>
         </methods>
-      </class> <!-- mmtTestCases.TestCases -->
+      </class> <!-- mmtTestCases.FlightBookingTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

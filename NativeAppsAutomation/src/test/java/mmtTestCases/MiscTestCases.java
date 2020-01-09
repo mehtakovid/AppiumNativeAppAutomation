@@ -1,18 +1,15 @@
 package mmtTestCases;
 
 import java.io.IOException;
-
+import org.apache.log4j.Logger;
 import org.apache.poi.EncryptedDocumentException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import mmtPageLogic.mmtFlightBookingPageFunctions;
-import mmtPageLogic.mmtFlightResultPageFunctions;
 import mmtPageLogic.mmtHomePageFunctions;
-import mmtPageLogic.mmtHotelBookingPageFunctions;
-import mmtPageLogic.mmtHotelsResultPageFunctions;
 
 public class MiscTestCases extends BaseClassMMT {
 		
+	public static Logger log = getLogger(MiscTestCases.class);
 	
 	/*****
 	 * Test Method Name : Validate that User can scroll to Rails option
@@ -24,10 +21,11 @@ public class MiscTestCases extends BaseClassMMT {
 	
 	@Test(priority=2,enabled=true)
 	public void scrollToRails() {
-		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait);
+		log.info("Execution of Test Case 2 Starts.");
+		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait,log);
 		TS1.checkForUnwantedPopUps();
 		TS1.openRailBooking();
-			
+		log.info("Execution of Test Case 2 Ends.");
 	}
 	
 	
@@ -49,11 +47,13 @@ public class MiscTestCases extends BaseClassMMT {
 		return DataReader.readDataFromExcel("..//TestDataSheet.xlsx", "TravelBlogData");
 	}
 	
-	@Test(priority=4,dataProvider="travelBlogDataProvider",enabled=false)
+	@Test(priority=4,dataProvider="travelBlogDataProvider",enabled=true)
 	public void getNumberOfTravelBlogsAndClickOnSpecificOne(String blogName) {
-		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait);
+		log.info("Execution of Test Case 4 Starts.");
+		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait,log);
 		TS1.checkForUnwantedPopUps();
 		TS1.getTravelBlogDetails("Top 5 Luxury Beach Resorts in India");
+		log.info("Execution of Test Case 4 Ends.");
 	}
 	
 

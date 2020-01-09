@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -16,10 +17,12 @@ public class mmtFlightResultPageFunctions extends mmtObjectRepo {
 	
 	public AppiumDriver<MobileElement> driver;
 	public WebDriverWait wait;
+	public Logger log;
 	
-	public mmtFlightResultPageFunctions(AppiumDriver<MobileElement> driver, WebDriverWait wait) {
+	public mmtFlightResultPageFunctions(AppiumDriver<MobileElement> driver, WebDriverWait wait, Logger log) {
 		this.driver=driver;
 		this.wait=wait;
+		this.log=log;
 	}
 	
 	public Map<String,String> flightDetails(String depCity, String arrCity){

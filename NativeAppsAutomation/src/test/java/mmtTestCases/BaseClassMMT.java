@@ -2,6 +2,9 @@ package mmtTestCases;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +19,19 @@ public class BaseClassMMT {
 	
 	public static AppiumDriver<MobileElement> driver;
 	public static WebDriverWait wait;
+	
+	
+	private static boolean root=false;
+	
+	public static Logger getLogger(Class cls){
+		if(root){
+			return Logger.getLogger(cls);
+		}
+		PropertyConfigurator.configure("log4j.properties");
+		root = true;
+		return Logger.getLogger(cls);
+	}
+
 	
 	@BeforeMethod
 	public void setupAndroidDriver() throws MalformedURLException {

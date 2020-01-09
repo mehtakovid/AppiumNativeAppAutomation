@@ -2,6 +2,7 @@ package mmtTestCases;
 
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.apache.poi.EncryptedDocumentException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,6 +12,8 @@ import mmtPageLogic.mmtHotelBookingPageFunctions;
 import mmtPageLogic.mmtHotelsResultPageFunctions;
 
 public class HotelBookingTests extends BaseClassMMT {
+	
+	public static Logger log = getLogger(FlightBookingTests.class);
 	
 	/**
 	 * Test Method Name : Validate Hotel Booking in MMT and finding Premium Hotels
@@ -38,13 +41,14 @@ public class HotelBookingTests extends BaseClassMMT {
 		return DataReader.readDataFromExcel("..//TestDataSheet.xlsx", "HotelBookingData");
 	}
 	
-	@Test(priority=3,dataProvider ="HotelBookingDataProvider",enabled=false)
+	@Test(priority=3,dataProvider ="HotelBookingDataProvider",enabled=true)
 	public void getPriciestPremiumHotelDetails(String bookingCity, String CheckInMonYear,
 			String checkinDate, String checkoutMonYear, String checkoutDate,
-			int numberOfAdults, int children) {
-		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait);
-		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait);
-		mmtHotelsResultPageFunctions TS3 = new mmtHotelsResultPageFunctions(driver, wait);
+			String numberOfAdults, String children) {
+		log.info("Execution of Test Case 3 starts.");
+		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait,log);
+		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait,log);
+		mmtHotelsResultPageFunctions TS3 = new mmtHotelsResultPageFunctions(driver, wait,log);
 		TS1.checkForUnwantedPopUps();
 		TS1.clickOnHotels();
 		TS2.setHotelDestination(bookingCity);
@@ -58,6 +62,7 @@ public class HotelBookingTests extends BaseClassMMT {
 		TS3.selectPremiumCategory();
 		TS3.sortByHighPriceToLowPrice();
 		System.out.println("The two Priciest hotels for this search are : " +TS3.fetchHighestPriceHotel());
+		log.info("Execution of Test Case 3 ends.");
 	}
 	
 	
@@ -84,16 +89,18 @@ public class HotelBookingTests extends BaseClassMMT {
 		return DataReader.readDataFromExcel("..//TestDataSheet.xlsx", "BookingDateToastMessageData");
 	}
 	
-	@Test(priority=5,dataProvider="bookingDateToastMessagedataProvider",enabled=false)
+	@Test(priority=5,dataProvider="bookingDateToastMessagedataProvider",enabled=true)
 	public void bookingDateToastMessage(String bookingCity, String CheckInMonYear,
 			String checkinDate, String checkoutMonYear, String checkoutDate) {
-		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait);
-		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait);
+		log.info("Execution of Test case 5 starts.");
+		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait,log);
+		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait,log);
 		TS1.checkForUnwantedPopUps();
 		TS1.clickOnHotels();
 		TS2.setHotelDestination(bookingCity);
 		TS2.setCheckInDate(CheckInMonYear, checkinDate);
 		TS2.setCheckOutDate(checkoutMonYear, checkoutDate);
+		log.info("Execution of Test case 5 Ends.");
 	}
 	
 	@DataProvider
@@ -112,19 +119,20 @@ public class HotelBookingTests extends BaseClassMMT {
 		return DataReader.readDataFromExcel("..//TestDataSheet.xlsx", "GuestLimitToastMessageData");
 	}
 	
-	@Test(priority=6,dataProvider="BookingAdultLimitToastMessage",enabled=false)
+	@Test(priority=6,dataProvider="BookingAdultLimitToastMessage",enabled=true)
 	public void BookingAdultLimitToastMessage(String bookingCity, String CheckInMonYear,
 			String checkinDate, String checkoutMonYear, String checkoutDate,
-			int numberOfAdults) {
-		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait);
-		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait);
+			String numberOfAdults) {
+		log.info("Execution of Test Case 6 starts.");
+		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait,log);
+		mmtHotelBookingPageFunctions TS2 = new mmtHotelBookingPageFunctions(driver,wait,log);
 		TS1.checkForUnwantedPopUps();
 		TS1.clickOnHotels();
 		TS2.setHotelDestination(bookingCity);
 		TS2.setCheckInDate(CheckInMonYear, checkinDate);
 		TS2.setCheckOutDate(checkoutMonYear, checkoutDate);
 		TS2.setNumberOfAdults(numberOfAdults);
-		
+		log.info("Execution of Test Case 6 ends");
 	}
 
 
