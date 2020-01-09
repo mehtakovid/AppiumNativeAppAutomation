@@ -9,9 +9,7 @@ public class mmtObjectRepo {
 	By HomeButton = By.xpath("//android.widget.TextView[@text='Trips']");
 	By flightsIcon = By.xpath("//android.widget.TextView[@text='Flights']");
 	By hotelsIcon = By.xpath("//android.widget.TextView[@text='Hotels']");
-	By travelBlogOne = By.xpath("//android.support.v4.view.ViewPager//android.widget.LinearLayout[1]");
-	By travelBlogTwo = By.xpath("//android.support.v4.view.ViewPager//android.widget.LinearLayout[2]");
-	By travelBlogThree = By.xpath("//android.support.v4.view.ViewPager//android.widget.LinearLayout[3]");
+	By travelBlogHeading = By.xpath("//android.widget.TextView[@text='Travel Blogs']");
 
 	//FlightBookingPage
 	By fromCity = By.id("com.makemytrip:id/froCityLayout");

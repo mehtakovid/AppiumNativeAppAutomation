@@ -1,25 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="123495" started-at="2020-01-06T21:37:49 IST" finished-at="2020-01-06T21:39:52 IST">
+  <suite name="Default suite" duration-ms="376547" started-at="2020-01-09T21:41:35 IST" finished-at="2020-01-09T21:47:52 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="123495" started-at="2020-01-06T21:37:49 IST" finished-at="2020-01-06T21:39:52 IST">
-      <class name="mmtTestCases.TestCases">
-        <test-method status="PASS" signature="setupAndroidDriver()[pri:0, instance:mmtTestCases.TestCases@2d6eabae]" name="setupAndroidDriver" is-config="true" duration-ms="47053" started-at="2020-01-06T21:37:02 IST" finished-at="2020-01-06T21:37:49 IST">
+    <test name="Default test" duration-ms="376547" started-at="2020-01-09T21:41:35 IST" finished-at="2020-01-09T21:47:52 IST">
+      <class name="mmtTestCases.FlightBookingTests">
+        <test-method status="PASS" signature="setupAndroidDriver()[pri:0, instance:mmtTestCases.FlightBookingTests@74ad1f1f]" name="setupAndroidDriver" is-config="true" duration-ms="82124" started-at="2020-01-09T21:41:38 IST" finished-at="2020-01-09T21:43:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupAndroidDriver -->
-        <test-method status="PASS" signature="getPriciestPremiumHotelDetails()[pri:0, instance:mmtTestCases.TestCases@2d6eabae]" name="getPriciestPremiumHotelDetails" duration-ms="123326" started-at="2020-01-06T21:37:49 IST" finished-at="2020-01-06T21:39:52 IST">
+        <test-method status="PASS" signature="flightBooking(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:mmtTestCases.FlightBookingTests@74ad1f1f]" name="flightBooking" duration-ms="122814" started-at="2020-01-09T21:43:00 IST" data-provider="readExcelDataForFlightBooking" finished-at="2020-01-09T21:45:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mumbai]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Delhi]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[June 2020]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[21]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Economy Class]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getPriciestPremiumHotelDetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:mmtTestCases.TestCases@2d6eabae]" name="tearDown" is-config="true" duration-ms="3611" started-at="2020-01-06T21:39:52 IST" finished-at="2020-01-06T21:39:56 IST">
+        </test-method> <!-- flightBooking -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:mmtTestCases.FlightBookingTests@74ad1f1f]" name="tearDown" is-config="true" duration-ms="2702" started-at="2020-01-09T21:45:03 IST" finished-at="2020-01-09T21:45:06 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- mmtTestCases.TestCases -->
+        <test-method status="PASS" signature="setupAndroidDriver()[pri:0, instance:mmtTestCases.FlightBookingTests@74ad1f1f]" name="setupAndroidDriver" is-config="true" duration-ms="42127" started-at="2020-01-09T21:45:06 IST" finished-at="2020-01-09T21:45:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupAndroidDriver -->
+        <test-method status="FAIL" signature="flightBooking(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:mmtTestCases.FlightBookingTests@74ad1f1f]" name="flightBooking" duration-ms="121953" started-at="2020-01-09T21:45:48 IST" data-provider="readExcelDataForFlightBooking" finished-at="2020-01-09T21:47:50 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mumbai]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Bengaluru]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[March 2020]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Premium Economy]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //*[@text='Zero Cancellation'] (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@text='Zero Cancellation'] (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at mmtPageLogic.mmtFlightBookingPageFunctions.clickOnSearch(mmtFlightBookingPageFunctions.java:159)
+at mmtTestCases.FlightBookingTests.flightBooking(FlightBookingTests.java:61)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'IN-KOMEHTA-W1', ip: '192.168.0.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {app: C:\Users\komehta\git\Appium..., appActivity: com.mmt.travel.app.home.ui...., appPackage: com.makemytrip, automationName: UiAutomator2, databaseEnabled: false, desired: {app: C:\Users\komehta\git\Appium..., appActivity: com.mmt.travel.app.home.ui...., appPackage: com.makemytrip, automationName: UiAutomator2, deviceName: AndroidDevice, platformName: android}, deviceApiLevel: 27, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x2560, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 8.1.0, statBarHeight: 84, takesScreenshot: true, viewportRect: {height: 2308, left: 0, top: 84, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 8c95f558-2f91-4aaa-8ff6-eda99eeee124
+*** Element info: {Using=xpath, value=//*[@text='Zero Cancellation']}
+at sun.reflect.GeneratedConstructorAccessor19.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
+at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 30 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flightBooking -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:mmtTestCases.FlightBookingTests@74ad1f1f]" name="tearDown" is-config="true" duration-ms="2139" started-at="2020-01-09T21:47:50 IST" finished-at="2020-01-09T21:47:52 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- mmtTestCases.FlightBookingTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -4,6 +4,8 @@ import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static java.time.Duration.ofSeconds;
 import static io.appium.java_client.touch.offset.PointOption.point;
+
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
@@ -22,41 +24,49 @@ import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
-
+	
+	public Logger log;
 	public AppiumDriver<MobileElement> driver;
 	public WebDriverWait wait;
 	
-	public mmtFlightBookingPageFunctions(AppiumDriver<MobileElement> driver, WebDriverWait wait) {
+	public mmtFlightBookingPageFunctions(AppiumDriver<MobileElement> driver, WebDriverWait wait, Logger log) {
 		this.driver=driver;
 		this.wait=wait;
+		this.log=log;
 	}
 	
 	public void enterFromCity(String departureCity) {
+		log.info("waiting for city element to be clickable");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(fromCity)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(CityTextBox)).click();
 		driver.findElement(CityTextBox).sendKeys(departureCity);
+		log.info("Entered City for Departure");
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		}
 		catch(Exception e) {
 			
 		}
+		log.info("Wait Completed, Will now click first suggestion.");
 		driver.findElement(CityFirstSuggestion).click();
 		
 	}
 	
 	public void enterToCity(String arrivalCity) {
+		log.info("Waiting for Arrival City element to be clickable.");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(toCity)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(CityTextBox)).click();
 		driver.findElement(CityTextBox).sendKeys(arrivalCity);
+		log.info("Entered Arrival city.");
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		}
 		catch(Exception e) {
 			
 		}
+		log.info("Wait Completed, Will now click on first suggestion");
 		driver.findElement(CityFirstSuggestion).click();
-		
+		log.info("selected Arrival City");
 	}
 	
 	/****Documentation
@@ -103,7 +113,7 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 				+ ".scrollIntoView(new UiSelector()"
 				+ ".textContains(\""+MonYear+"\")"
 				+ ".instance(0))"));
-		System.out.println("Moved the focus to desired month");
+		log.info("Moved the focus to desired month");
 		
 //		System.out.println("Let's see the power of seetest.");
 //		SeeTestClient seetest = new SeeTestClient(driver);
@@ -126,13 +136,13 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 				+ "/following-sibling::android.widget.LinearLayout"
 				+ "/android.widget.CheckedTextView[@text='"+Date+"']")).isEmpty()) {
 			
-			System.out.println("Element not found, Will Continue to scroll.");
+			log.info("Date not found, Will Continue to scroll.");
 			t.press(PointOption.point(0, 1200))
 			.waitAction().moveTo(PointOption.point(0, 600))
 			.waitAction().release().perform();
 		}
 		
-		System.out.println("Out of While Loop. Element Found. Click to be attempted.");
+		log.info("Out of While Loop. Element Found. Click to be attempted.");
 		
 		driver.findElement(By.xpath("//android.widget.TextView[@text='"+MonYear+"']"
 				+ "/parent::android.widget.LinearLayout"
@@ -140,14 +150,21 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 				+ "/following-sibling::android.widget.LinearLayout"
 				+ "/android.widget.CheckedTextView[@text='"+Date+"']")).click();
 		driver.findElement(okButton).click();
+		log.info("Selected Date of Travel");
 	}
 	
 	public void clickOnSearch() {
+		log.info("waiting for search flights button to be clickable.");
 		wait.until(ExpectedConditions.elementToBeClickable(SearchButton)).click();
 		Assert.assertEquals(wait.until(ExpectedConditions.visibilityOfElementLocated(flightOptionsAssertion)).isDisplayed(),true);
 	}
 	
-	public void numberOfTraveller(int Adults, int Children, int infants) {
+	public void numberOfTraveller(String AdultsParam, String ChildrenParam, 
+			String infantsParam) {
+		Integer Adults = Integer.parseInt(AdultsParam);
+		Integer Children = Integer.parseInt(ChildrenParam);
+		Integer infants = Integer.parseInt(infantsParam);
+		log.info("Looking for Passenger info to be clickable");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(passengerConfig)).click();
 		try {
 			Thread.sleep(5000);
@@ -159,43 +176,45 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 		if(Adults>1) {
 			int i=1;
 			while(i<Adults) {
-				System.out.println("Adding One Adult Passenger.");
+				log.info("Adding One Adult Passenger.");
 				driver.findElement(addAdultPassenger).click();
 				i++;
 			}
 		}
 		else {
-			System.out.println("No Adult Configuration Required.");
+			log.info("No Adult Configuration Required.");
 		}
 		
 		if(Children>0) {
 			int i=0;
 			while(i<Children) {
-				System.out.println("Adding One Child Passenger");
+				log.info("Adding One Child Passenger");
 				driver.findElement(addChildPassenger).click();
 				i++;
 			}
 		}
 		else {
-			System.out.println("No Child Configuration Required.");
+			log.info("No Child Configuration Required.");
 		}
 		
 		if(infants>0) {
 			int i=0;
 			while(i<infants) {
-				System.out.println("Adding One Infant Passenger");
+				log.info("Adding One Infant Passenger");
 				driver.findElement(addInfantPassenger).click();
 				i++;
 			}
 		}
 		else {
-			System.out.println("No Infant Configuration Required.");
+			log.info("No Infant Configuration Required.");
 		}
 		
 		driver.findElement(OkButton_PassengerConfig).click();
+		log.info("Passenger Configuration Done.");
 	}
 	
 	public void travelClassPreference(String travelClass) {
+		log.info("Waiting for Travel Class to be clickable.");
 		wait.until(ExpectedConditions.elementToBeClickable(travelClassPreference)).click();
 		try {
 			Thread.sleep(5000);
@@ -203,6 +222,7 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		log.info("Wait Completed, will not select the class preference.");
 		if(travelClass.equalsIgnoreCase("Economy Class")) {
 			driver.findElement(economyClass).click();
 		}

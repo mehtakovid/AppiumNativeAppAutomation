@@ -3,9 +3,13 @@ package mmtTestCases;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -16,7 +20,20 @@ public class BaseClassMMT {
 	public static AppiumDriver<MobileElement> driver;
 	public static WebDriverWait wait;
 	
-	@BeforeSuite
+	
+	private static boolean root=false;
+	
+	public static Logger getLogger(Class cls){
+		if(root){
+			return Logger.getLogger(cls);
+		}
+		PropertyConfigurator.configure("log4j.properties");
+		root = true;
+		return Logger.getLogger(cls);
+	}
+
+	
+	@BeforeMethod
 	public void setupAndroidDriver() throws MalformedURLException {
 		
 		DesiredCapabilities caps = new DesiredCapabilities();
@@ -32,7 +49,7 @@ public class BaseClassMMT {
 		wait = new WebDriverWait(driver,30);
 	}
 	
-	@AfterSuite
+	@AfterMethod
 	public void tearDown() {
 		driver.quit();
 	}
