@@ -5,9 +5,9 @@
     <classes>
       <class name="mmtTestCases.FlightBookingTests">
         <methods>
-          <include name="setupAndroidDriver"/>
           <include name="tearDown"/>
-          <include name="flightBooking" invocation-numbers="1"/>
+          <include name="flightBooking"/>
+          <include name="setupAppiumDriver"/>
         </methods>
       </class> <!-- mmtTestCases.FlightBookingTests -->
     </classes>

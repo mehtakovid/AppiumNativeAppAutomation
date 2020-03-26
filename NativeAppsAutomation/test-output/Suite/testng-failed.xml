@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <test thread-count="2" name="MISCTESTS(failed)" parallel="methods">
+    <parameter name="SystemPort" value="8201"/>
+    <parameter name="platformName" value="android"/>
+    <parameter name="deviceName" value="emulator-5554"/>
+    <classes>
+      <class name="mmtTestCases.MiscTestCases">
+        <methods>
+          <include name="getNumberOfTravelBlogsAndClickOnSpecificOne"/>
+          <include name="tearDown"/>
+          <include name="scrollToRails"/>
+          <include name="setupAppiumDriver"/>
+        </methods>
+      </class> <!-- mmtTestCases.MiscTestCases -->
+    </classes>
+  </test> <!-- MISCTESTS(failed) -->
+  <test thread-count="2" name="FlightBookingTESTS(failed)" parallel="methods">
+    <parameter name="SystemPort" value="8202"/>
+    <parameter name="platformName" value="android"/>
+    <parameter name="deviceName" value="emulator-5556"/>
+    <classes>
+      <class name="mmtTestCases.FlightBookingTests">
+        <methods>
+          <include name="tearDown"/>
+          <include name="flightBooking" invocation-numbers="0 1"/>
+          <include name="setupAppiumDriver"/>
+        </methods>
+      </class> <!-- mmtTestCases.FlightBookingTests -->
+    </classes>
+  </test> <!-- FlightBookingTESTS(failed) -->
+</suite> <!-- Failed suite [Suite] -->
