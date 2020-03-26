@@ -2,13 +2,16 @@ package mmtPageLogic;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import io.appium.java_client.touch.offset.PointOption;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import static io.appium.java_client.touch.TapOptions.tapOptions;
 
 public class mmtHomePageFunctions extends mmtObjectRepo {
 	
@@ -25,6 +28,7 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 	
 	public void clickOnHomePage() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(HomeButton)).click();
+		
 	}
 	
 	public void clickOnFlights() {
@@ -40,6 +44,8 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 	}
 	
 	public void checkForUnwantedPopUps() {
+		TouchAction t = new TouchAction(driver);
+		
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -47,7 +53,7 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 		}
 		log.info("Wait Completed. Looking for Popup.");
 		if(!driver.findElements(popUpClose).isEmpty()) {
-			driver.findElement(popUpClose).click();
+			t.tap(tapOptions().withElement(element(driver.findElement(popUpClose)))).perform();
 			log.info("Found the popup. Closed the PopUp.");
 		}
 		else {
@@ -84,7 +90,7 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 		log.info("Wait Completed. Looking for Travel Blog Header.");
 		if(driver.findElements(travelBlogHeading).isEmpty()) {
 			log.error("Travel Blog Section does not exist. Execution will be aborted");
-			System.exit(1);
+			Assert.fail();
 		}
 		log.info("Travel Blog Header found. Scrolling will now begin for specific blog.");
 		TouchAction t = new TouchAction(driver);
@@ -92,6 +98,7 @@ public class mmtHomePageFunctions extends mmtObjectRepo {
 			t.press(PointOption.point(1200,1900)).waitAction().moveTo(PointOption.point(300, 1900)).release().perform();
 			log.info("scrolling for specific Travel blog.");
 		}
+	
 		driver.findElement(By.xpath("//android.widget.TextView[@text='"+Name+"']")).click();	
 		log.info("Clicked on specific travel blog.");
 		String BlogTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text='"+Name+"']"))).getText();

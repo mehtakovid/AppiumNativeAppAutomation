@@ -1,9 +1,16 @@
 package mmtTestCases;
 
+import org.testng.annotations.Test;
+
+import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -46,7 +53,8 @@ public class FlightBookingTests extends BaseClassMMT{
 	
 	@Test(priority=1,dataProvider="readExcelDataForFlightBooking",enabled=true)
 	public void flightBooking(String fromCity, String toCity, String MonYear, String Date,
-			String Adults, String children, String infants, String travelPreference) {
+			String Adults, String children, String infants, String travelPreference) throws Exception {
+		
 		log.info("Execution of Test Case 1 starts.");
 		mmtHomePageFunctions TS1 = new mmtHomePageFunctions(driver, wait,log);
 		mmtFlightBookingPageFunctions TS2 = new mmtFlightBookingPageFunctions(driver,wait,log);
@@ -61,6 +69,9 @@ public class FlightBookingTests extends BaseClassMMT{
 		TS2.clickOnSearch();
 		log.info("The first three cheapest flights are : "+TS3.flightDetails(fromCity, toCity));
 		TS3.totalFlightCost();
+		
+		
+		
 	}
 	
 

@@ -1,5 +1,6 @@
 package mmtPageLogic;
-
+import static io.appium.java_client.touch.offset.ElementOption.element;
+import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import static java.time.Duration.ofSeconds;
@@ -19,8 +20,10 @@ import com.experitest.appium.SeeTestClient;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
@@ -89,6 +92,8 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 		}
 		TouchAction t = new TouchAction(driver);
 		
+		
+		
 		/****
 		 * Approach 1 - Element to Element Scroll
 		 */
@@ -99,7 +104,7 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 //			t.longPress(longPressOptions().withElement(element(eleTwo)).withDuration(ofSeconds(6)))
 //			.moveTo(element(eleOne)).release().perform();
 //		}
-		
+//		
 		
 		
 		/****
@@ -140,10 +145,10 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 			t.press(PointOption.point(0, 1200))
 			.waitAction().moveTo(PointOption.point(0, 600))
 			.waitAction().release().perform();
+			
 		}
 		
 		log.info("Out of While Loop. Element Found. Click to be attempted.");
-		
 		driver.findElement(By.xpath("//android.widget.TextView[@text='"+MonYear+"']"
 				+ "/parent::android.widget.LinearLayout"
 				+ "/parent::android.widget.LinearLayout"
@@ -155,8 +160,20 @@ public class mmtFlightBookingPageFunctions extends mmtObjectRepo {
 	
 	public void clickOnSearch() {
 		log.info("waiting for search flights button to be clickable.");
+		
 		wait.until(ExpectedConditions.elementToBeClickable(SearchButton)).click();
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+		if(driver.findElements(flightOptionsAssertion).isEmpty()){
+			log.info("No mmt Assurance text visible.");
+		}
+		else {
 		Assert.assertEquals(wait.until(ExpectedConditions.visibilityOfElementLocated(flightOptionsAssertion)).isDisplayed(),true);
+		}
 	}
 	
 	public void numberOfTraveller(String AdultsParam, String ChildrenParam, 
